@@ -1,0 +1,22 @@
+<mat-sidenav-container class="log-container">
+    <mat-sidenav #sidenav class="log-sidenav" [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="!mobileQuery.matches">
+        <div class="dash-title">
+            <img src="assets/images/logo-horizontal.png" height="40px" style="padding: 9px 0em;" />
+        </div>
+        <br>
+        <h2>Filter:</h2>
+        <app-filters (search)="search($event)"></app-filters>
+    </mat-sidenav>
+    <mat-sidenav-content class=" mat-typography log-sidenav-content ">
+        <mat-toolbar style="top: 0;left: 0;right: 0;z-index: 998; background: white ">
+            <mat-toolbar-row class="toolbar-primary ">
+                <div *ngIf="mobileQuery.matches ">
+                    <button mat-icon-button (click)="sidenav.toggle() "><mat-icon>menu</mat-icon></button>
+                </div>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <span *ngIf="!searching">
+            <app-log-list-results [dataSource]="logs"></app-log-list-results>
+        </span>
+    </mat-sidenav-content>
+</mat-sidenav-container>

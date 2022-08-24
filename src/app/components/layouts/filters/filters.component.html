@@ -1,0 +1,25 @@
+<form [formGroup]="searchForm">
+    <mat-form-field appearance="outline">
+        <input matInput formControlName="start_date" [matDatepicker]="pickerStart" [max]="dateToday" placeholder="Choose start date">
+        <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+        <mat-datepicker #pickerStart></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <input matInput formControlName="end_date" [matDatepicker]="pickerEnd" [max]="dateToday" placeholder="Choose end date">
+        <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+        <mat-datepicker #pickerEnd></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Requestor</mat-label>
+        <mat-select formControlName="requestor">
+            <mat-option *ngFor="let bank of banks" [value]="bank">{{bank}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Validator</mat-label>
+        <mat-select formControlName="validator">
+            <mat-option *ngFor="let bank of banks" [value]="bank">{{bank}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <button mat-button class="primary-button" (click)="submit()">Search</button>
+</form>

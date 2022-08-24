@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.table-container {
+    margin: 1em 2em 0;
+    &.table-container-sm {
+        margin: 1em 1em 0;
+    }
+}
+
+table {
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+.table-header {
+    padding-top: 2.5em;
+    padding-bottom: 0em;
+    padding-right: 1em;
+    position: relative;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.mat-column-parameter {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 28% !important;
+    width: 28% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}

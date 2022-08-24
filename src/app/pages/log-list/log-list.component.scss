@@ -1,0 +1,113 @@
+$menu_border: 1px solid #e9e9e9;
+.log-container {
+    display: block;
+    box-sizing: border-box;
+    height: 100%;
+    background-color: #f2f2f7;
+    .log-sidenav-content {
+        padding: 0;
+    }
+}
+
+.log-sidenav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 280px;
+    background-color: white;
+    border-right: 1px solid #CDEBFA;
+    .dash-title {
+        border-bottom: 1px solid #e8e8e8;
+        text-align: left;
+        padding-left: 1rem;
+        // padding-right: 1rem;
+    }
+    .log-drawer {
+        background-color: white;
+        color: #ff9100;
+    }
+}
+
+.mat-list-base .mat-list-item {
+    font-size: 16px
+}
+
+.list-item-active {
+    letter-spacing: 1px;
+    background: #E6F5FC;
+}
+
+.list-item-active-disabled {
+    color: grey !important;
+}
+
+mat-icon {
+    color: #039BE5;
+    padding-right: 0.75rem;
+    vertical-align: bottom;
+}
+
+.log-mat-nav-list {
+    padding-top: 0;
+    a {
+        border-top: $menu_border;
+    }
+    a:last-of-type {
+        border-bottom: $menu_border;
+    }
+}
+
+.log-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+#log-main-content {
+    padding: 1.75em;
+    background-color: #ffffff;
+}
+
+mat-form-field {
+    width: 87%;
+    padding-left: 1rem;
+}
+
+h2 {
+    margin-top: 2rem;
+    font-family: "Roboto" !important;
+    color: rgb(16, 19, 37);
+    width: 90%;
+    padding-left: 1.75rem;
+}
+
+.primary-button,
+.secondary-button {
+    height: 46px;
+    margin-top: 10px;
+    font-weight: 550;
+    font-size: 12px;
+    border-radius: 8px;
+    outline: none;
+}
+
+.secondary-button {
+    color: #0099e8;
+    background-color: white;
+    border: 1px solid #0099e8;
+}
+
+.primary-button {
+    color: white;
+    background-color: #0099e8;
+    border: none;
+    padding-left: 1rem;
+    margin-left: 25px;
+    width: 80%;
+}
+
+.primary-button:hover,
+.secondary-button:hover {
+    cursor: pointer;
+}

@@ -1,0 +1,65 @@
+<div id="log-list-content" class="log-list-content-container">
+    <div *ngIf="hasLogs; else noLogs" class="table-responsive">
+        <h2>Request Logs</h2>
+        <table mat-table [dataSource]="tableData">
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef style="width: 10%;"> Date </th>
+                <td mat-cell *matCellDef="let element" style="width: 10%;">{{element.log_date | date:"MM/dd/yyyy"}}</td>
+            </ng-container>
+            <ng-container matColumnDef="user_id">
+                <th mat-header-cell *matHeaderCellDef style="width: 10%;"> User ID </th>
+                <td mat-cell *matCellDef="let element" style="width: 10%;">
+                    <span *ngIf="element.user_id !== ''"> {{element.user_id}} </span>
+                    <span *ngIf="element.user_id == '' || !element.user_id"> --- </span>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="requestor">
+                <th mat-header-cell *matHeaderCellDef style="width: 10%;"> Requestor </th>
+                <td mat-cell *matCellDef="let element" style="width: 10%;">{{element.source}}</td>
+            </ng-container>
+            <ng-container matColumnDef="validator">
+                <th mat-header-cell *matHeaderCellDef style="width: 10%;"> Validator </th>
+                <td mat-cell *matCellDef="let element" style="width: 1%;">
+                    <span *ngIf="element.target !== ''"> {{element.target}} </span>
+                    <span *ngIf="element.target == '' || !element.target"> --- </span>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="parameter">
+                <th mat-header-cell *matHeaderCellDef style="width: 15%;"> Parameter </th>
+                <td mat-cell *matCellDef="let element" style="width: 15%;">
+                    <span *ngIf="element.data_fields !== ''"> {{element.data_fields}} </span>
+                    <span *ngIf="element.data_fields == '' || !element.data_fields"> --- </span>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="type">
+                <th mat-header-cell *matHeaderCellDef style="width: 10%;"> Type </th>
+                <td mat-cell *matCellDef="let element" style="width: 10%;">
+                    <span *ngIf="element.log_type !== ''"> {{element.log_type}} </span>
+                    <span *ngIf="element.log_type == '' || !element.log_type"> --- </span>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef style="width: 10%;"> Status </th>
+                <td mat-cell *matCellDef="let element" style="width: 10%;">
+                    <span *ngIf="element.status !== ''"> {{element.status}} </span>
+                    <span *ngIf="element.status == '' || !element.status"> --- </span>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="message">
+                <th mat-header-cell *matHeaderCellDef style="width: 20%;"> Message </th>
+                <td mat-cell *matCellDef="let element" style="width: 20%;">
+                    <span *ngIf="element.message == ''">---</span>
+                    <span *ngIf="element.message !== ''">{{element.message}}</span>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="scanDisplayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: scanDisplayedColumns;"></tr>
+        </table>
+    </div>
+    <mat-paginator #LogResPaginator="matPaginator" class="paginator" [pageSizeOptions]="[5, 25, 50, 75, 100]" showFirstLastButtons></mat-paginator>
+    <ng-template #noLogs>
+        <div class="filters">
+            No request logs found.
+        </div>
+    </ng-template>
+</div>
